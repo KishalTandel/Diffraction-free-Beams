@@ -1,0 +1,34 @@
+== Bessel beam facts ==
+first zero of J0: 2.4048255576957724 | J0^2=1/2 at x = 1.1263642393775428 -> FWHM*kt = 2.2527284787550856
+core r0*kt / FWHM*kt / r0 in lambda/sin(theta): 2.4048255576957724 2.2527284787550856 0.38273987478100613 0.35853287283775764
+power in core + first 3 rings (units 2 pi I0/kt^2): [0.779 0.985 0.995 0.998]
+
+== Running example ==  kt = 79433.44256864206  zmax = 0.12499599993599796  Gaussian zR = 0.002881051045140878  G = 43.385555471783  kt*w0 = 79.43344256864206
+Gaussian of equal FWHM (28.4 um): zR (m) = 0.002881051045140878
+N rings ~ kt w0/pi = 25.28445006321113  G/N = 1.7158987189090174
+
+== Table: analytic vs numerics ==
+Bessel-Gauss field vs FFT, z=60 mm (rel. error)                analytic = 3.05e-04       numeric = 3.06e-04
+Bessel-Gauss field vs FFT, z=120 mm (rel. error)               analytic = 6.10e-04       numeric = 6.11e-04
+Bessel-Gauss I(0,z)/I0 at z=60 mm                              analytic = 0.6307         numeric = 0.6307
+Axicon I(0,z) sim/analytic at z=60, 100 mm                     analytic = 1              numeric = 0.996, 0.997
+Axicon axial maximum (mm)                                      analytic = 62.5           numeric = 64
+   axicon max shape deviation over 20-180 mm: 0.014
+Core power fraction f, kt w0 = 79.4                            analytic = 0.04919        numeric = 0.04916
+   f (exact core / asymptotic total) = 0.049185289997311525 ; f*G = 2.1329088008904917 ; peak ratio 4.59/(kt w0) = 0.057784226033431335 = 1.1753905009538184 f
+
+== Airy ==
+Airy closed form vs split-step, a=0.1, xi<=8 (max rel. error)  analytic = ---            numeric = 2.4e-09
+Airy power, a=0.1                                              analytic = 0.631204       numeric = 0.631204
+Main-lobe decay I(xi=12)/I(0), a=0.02                          analytic = 0.237          numeric = 0.251
+   centroid at xi = 0 : -12.499496322030215
+   centroid at xi = 4 : -12.49811266602668
+   centroid at xi = 8 : -12.486755301640525
+
+== Applications ==
+Airy: kx0^2 (cm), displacement after 10 cm (mm): 2.482295080270064 0.20286316640806895
+Tweezers: r0 = 2.42 um, z_heal(a=1um) = 10.0 um, w0 = 0.30 mm, kt w0 = 299, N = 95, f = 1.31%, peak ratio = 1.54% -> 65x power
+Gaussian sheet: t=1um -> 2zR = 12.3 um; for 100 um FOV, t_min = 2.86 um
+Light sheet: sin(theta) = 0.301, kt = 5.150e+06, FWHM = 0.44 um, Gaussian zR = 1.18 um, w0 = 15.8 um, N = 26, G = 42, f = 4.8%
+   sheet FWHM = 1.59 um; energy in core-FWHM stripe 7.8%, in |x|<r0 13.6%  (from fig_numeric.py; run it first)
+Machining: 1.3 R/lambda = 1262; exact zmax/2r0 at sin(theta)=0.05 = 1267; J0^2(3.83) = 0.162; 1/0.162 = 6.2
