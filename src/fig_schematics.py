@@ -40,12 +40,13 @@ a.text(K*np.cos(th)+0.1,0.15,r"$\beta=k\cos\theta$",fontsize=6.5,ha="left")
 a.text(K*np.cos(th)-0.1,K*np.sin(th)+0.25,r"$\mathbf{k}$",fontsize=7,color=ORANGE,ha="center")
 a.text(K*np.cos(th)+0.1,K*np.sin(th)/2,r"$k_t=k\sin\theta$",fontsize=6.5,rotation=90,va="center")
 a.add_patch(Arc((0,0),2.0,2.0,theta1=0,theta2=np.degrees(th),lw=0.6)); a.text(1.15,0.2,r"$\theta$",fontsize=7)
-a.text(1.8,-1.9,"cone of plane waves\n(half-angle $\\theta$)",ha="center",fontsize=6.5)
+a.text(1.25,-2.45,"cone of plane waves\n(half-angle $\\theta$)",ha="center",va="center",fontsize=6.5)
+a.text(K*np.cos(th)-0.1,-K*np.sin(th)-0.25,r"$\mathbf{k}$",fontsize=7,color=ORANGE,ha="center",va="top")
 # ring inset (k_x,k_y)
 ins=a.inset_axes([0.0,0.0,0.01,0.01]); ins.axis("off")
 cx,cy=1.1,-1.35
-a.add_patch(Ellipse((4.4,-1.75),0.55,1.4,fc="none",ec=BLUE,lw=1.2))
-a.text(4.2,-2.8,r"ring $|\mathbf{k}_\perp|=k_t$"+"\nin the $(k_x,k_y)$ plane",ha="center",va="center",fontsize=6.0,color=BLUE)
+a.add_patch(Ellipse((K*np.cos(th),0),0.6,2*K*np.sin(th),fc="none",ec=BLUE,lw=1.2))
+a.text(K*np.cos(th)+0.55,-K*np.sin(th)-0.6,r"ring $|\mathbf{k}_\perp|=k_t$"+"\nin the $(k_x,k_y)$ plane",ha="center",va="center",fontsize=6.0,color=BLUE)
 # ---- (c) Airy generation
 a=ax[2]; a.set_xlim(0,10.4); a.set_ylim(-1.2,3.3); a.axis("off"); panel(a,"(c)")
 a.add_patch(Rectangle((0.0,0.55),1.6,0.7,fc="#cfe0f5",ec="none")); a.text(0.8,1.55,"laser",ha="center",fontsize=6.5)
@@ -57,15 +58,16 @@ fx=4.2+3.0
 a.fill([4.2,fx,fx],[1.25,0.9,0.9],color="#cfe0f5",lw=0); a.fill([4.2,fx,fx],[0.55,0.9,0.9],color="#cfe0f5",lw=0)
 a.plot([fx,fx],[-0.2,2.0],"k:",lw=0.6); a.text(fx,-0.45,"Fourier plane\n$(f)$",ha="center",fontsize=6.3)
 arrow(a,(4.25,2.45),(fx,2.45),lw=0.5,style="<|-|>",ms=5); a.text((4.2+fx)/2,2.6,r"$f$",ha="center",fontsize=6.5)
+arrow(a,(1.72,2.45),(4.15,2.45),lw=0.5,style="<|-|>",ms=5); a.text((1.72+4.15)/2,2.6,r"$f$",ha="center",fontsize=6.5)
 # Airy profile at focal plane
 yy=np.linspace(-0.05,1.9,300); ss=-(yy-0.9)/0.35*1.0 # map
-I=sp.airy(-(yy-0.35)/0.28)[0]**2; I=I/I.max()
+yc=0.95+1.02*0.28; I=sp.airy((yy-yc)/0.28)[0]**2; I=I/I.max()  # main lobe at y=0.95, oscillating tail on the side away from the bend
 a.plot(fx-0.05+0.0*I-I*0.7*(-1),yy,color=BLUE,lw=0.9) if False else a.plot(fx+I*0.9,yy,color=BLUE,lw=0.9)
 # parabolic trajectory after focal plane
 zp=np.linspace(0,3.0,60); a.plot(fx+zp,0.95+0.16*zp**2,color=RED,lw=1.2)
 a.plot(fx+zp,0.95+zp*0*0+0.0,color=GREY,lw=0.6,ls="--")
 a.text(fx+2.0,0.25,"straight\n(Gaussian)",fontsize=6,color=GREY,ha="center")
-a.text(fx+0.5,2.9,"Airy main lobe,  $x_c\\propto z^2$",fontsize=6.3,color=RED,ha="center")
+a.text(fx+0.2,2.95,"Airy main lobe,  $x_c\\propto z^2$",fontsize=6.3,color=RED,ha="center")
 plt.savefig(os.path.join(FIGDIR,"fig_schematic_generation.pdf")); plt.close()
 
 # ================= Fig 9: applications =================
