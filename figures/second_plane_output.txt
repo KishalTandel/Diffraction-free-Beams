@@ -1,0 +1,14 @@
+a = 16 um (a/r0 = 0.53), z_heal = a/tan(theta) = 2.0 mm; ray estimate of intercepted power = 2.74% (max 3.89%)
+   z - z1 = 1 z_heal (2.0 mm): I_obstructed / I_free on axis = 0.500
+   z - z1 = 2 z_heal (4.0 mm): I_obstructed / I_free on axis = 0.606
+   z - z1 = 3 z_heal (6.0 mm): I_obstructed / I_free on axis = 0.751
+   z - z1 = 4 z_heal (8.0 mm): I_obstructed / I_free on axis = 0.899
+   z - z1 = 6 z_heal (12.0 mm): I_obstructed / I_free on axis = 1.097
+   for z > z1 + 6 z_heal (up to 120 mm): ratio between 0.936 and 1.120
+a = 40 um (a/r0 = 1.32), z_heal = a/tan(theta) = 5.0 mm; ray estimate of intercepted power = 6.84% (max 9.72%)
+   z - z1 = 1 z_heal (4.0 mm): I_obstructed / I_free on axis = 0.315
+   z - z1 = 2 z_heal (10.0 mm): I_obstructed / I_free on axis = 0.981
+   z - z1 = 3 z_heal (14.0 mm): I_obstructed / I_free on axis = 1.181
+   z - z1 = 4 z_heal (20.0 mm): I_obstructed / I_free on axis = 1.015
+   z - z1 = 6 z_heal (30.0 mm): I_obstructed / I_free on axis = 0.998
+   for z > z1 + 6 z_heal (up to 120 mm): ratio between 0.949 and 1.067
