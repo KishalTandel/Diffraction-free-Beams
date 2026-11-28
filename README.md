@@ -8,7 +8,7 @@ formulas against simulation.
 
 ```bash
 pip install -r requirements.txt
-./run_all.sh          # about 1 minute; writes figures/*.pdf, figures/results.json, figures/checks_output.txt
+./run_all.sh          # about 4 minutes; writes figures/*.pdf, figures/results.json, figures/checks_output.txt
 ```
 
 Tested with Python 3.13, NumPy 2.5, SciPy 1.18, Matplotlib 3.11. Needs about 1 GB of RAM
@@ -23,6 +23,7 @@ Tested with Python 3.13, NumPy 2.5, SciPy 1.18, Matplotlib 3.11. Needs about 1 G
 | `src/fig_schematics.py` | Schematic drawings | Fig. 1 `fig_schematic_generation.pdf`, Fig. 9 `fig_schematic_apps.pdf` |
 | `src/fig_numeric.py` | Bessel, Bessel-Gauss, axicon and Airy simulations, self-healing | Fig. 2 `fig_bessel_profile.pdf`, Fig. 3 `fig_bg_check.pdf`, Fig. 5 `fig_propagation.pdf`, Fig. 6 `fig_airy.pdf`, Fig. 7 `fig_selfheal_bessel.pdf`, Fig. 8 `fig_airy_heal.pdf`, `results.json` (extra, not in the paper: `fig_tradeoff.pdf`) |
 | `src/fig_tradeoff.py` | Range-efficiency trade-off and light-sheet profile | Fig. 4 `fig_tradeoff_a.pdf`, Fig. 10 `fig_tradeoff_b.pdf` |
+| `src/check_second_plane.py` | Two-trap test: opaque disc (the first trapped particle) in the axicon beam; on-axis recovery behind it and the ray estimate of the intercepted power (Sec. VII A). Takes about 3 minutes | printed only (`figures/second_plane_output.txt`) |
 | `src/checks.py` | Prints every number quoted in the paper (Appendix B table, Secs. III and VII). Run after `fig_numeric.py` | `checks_output.txt` |
 
 ## Parameters used throughout

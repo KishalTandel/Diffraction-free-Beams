@@ -6,3 +6,4 @@ python fig_schematics.py   # Fig. 1 (generation schematic) and Fig. 8 (applicati
 python fig_numeric.py      # Figs. 2,4,5,6,7 + figures/results.json
 python fig_tradeoff.py     # Fig. 3 (f vs G) and Fig. 9 (light-sheet profiles)
 python checks.py | tee ../figures/checks_output.txt
+python check_second_plane.py | tee ../figures/second_plane_output.txt   # about 3 minutes
